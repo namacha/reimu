@@ -48,7 +48,7 @@ patterns = [(REGEX_STRING, FUNCTION), ...]
 
 `(r'^!help$', help)` is automatically added to patterns.
 
-Add docstring to function to generate help document.
+To generate help document, add docstring to function.
 
 ## Run bot
 
