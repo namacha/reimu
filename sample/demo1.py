@@ -9,7 +9,7 @@ def ping(msg):
 
 def greet(msg):
     '''bot greets you'''
-    name = msg.FromHandle
+    name = msg.FromDisplayName
     return 'Hello, %s' % name
 
 
