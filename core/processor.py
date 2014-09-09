@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# http://skype4py.sourceforge.net/doc/html/
 
 import signal
 import functools
@@ -54,7 +53,7 @@ class Processor(object):
             try:
                 msg, action = self.queue.get(True, 10)  # 10sec
                 action_with_timeout =\
-                    self.set_timeout(PROCESS_TIMEOUT)(action)  # 1sec
+                    self.set_timeout(PROCESS_TIMEOUT)(action)
                 result = action_with_timeout(msg)
 
                 if result == BOT_EXIT:
@@ -65,7 +64,6 @@ class Processor(object):
                     signal.alarm(0)
                     break
 
-                # if isinstance(result, str) or isinstance(result, unicode):
                 if isinstance(result, basestring):
                     if len(result) > 0:
                         msg.Chat.SendMessage(result)
@@ -80,10 +78,8 @@ class Processor(object):
 
             except Exception:
                 msg.Chat.SendMessage(u'ゆ……ゆ……ゆっぐ……')
-                # msg.Chat.SendMessage('%s\n%s' % (str(type(e)), e.message))
                 error_message = traceback.format_exc()
                 print error_message
-                # msg.Chat.SendMessage(error_message)
 
     @staticmethod
     def set_timeout(limit):
