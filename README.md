@@ -5,6 +5,12 @@ reimu-core is a core system of skypebot 'reimu'.
 This system contains base system only, not including time-driven event, dynaminc message handling.
 
 
+Requirements
+==================
+[Skype4Py](https://github.com/awahlig/skype4py)
+
+
+
 Usage
 ============
 ## Make module
