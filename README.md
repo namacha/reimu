@@ -50,7 +50,7 @@ patterns = [
 patterns is a list defines when to call function.
 patterns = [(REGEX_STRING, FUNCTION), ...]
 
-`(r'^!help$', help)` is automatically added to patterns.
+`(r'^!help$', show_help)` is automatically added to patterns.
 
 To generate help document, add docstring to function.
 

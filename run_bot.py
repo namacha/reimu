@@ -9,7 +9,7 @@ from patterns import patterns
 
 
 
-def make_help(msg):
+def show_help(msg):
     u'''!help:ヘルプもどきを表示'''
     result = u'       <この中は省略不可> (省略可)\n'
     result += u'全てのコマンドは2秒以上でタイムアウトします。\n'
@@ -24,7 +24,7 @@ def make_help(msg):
 
     return result
 
-patterns.append((r'^!help$', make_help))
+patterns.append((r'^!help$', show_help))
 
 if __name__ == '__main__':
     while True:
