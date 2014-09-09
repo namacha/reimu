@@ -26,7 +26,7 @@ def greet(msg):
 Function is called with argument 'msg'when chat message matches.
 
 'msg' is a instance of Skype4Py/Message.
-For more information, see [Skype4Py Reference#Message]("http://skype4py.sourceforge.net/doc/html/Skype4Py.chat.ChatMessage-class.html")
+For more information, see [skype4py]("http://skype4py.sourceforge.net/doc/html/Skype4Py.chat.ChatMessage-class.html" "Skype4Py Reference#Message")
 
 ## Edit ./patterns.py
 
