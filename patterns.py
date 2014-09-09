@@ -7,7 +7,7 @@ from sample import (
 patterns = [
     (r'^!ping$', demo1.ping),
     (r'^!dice$', demo1.throw_dice),
-    (r'^!parrot$', demo1.parrot),
+    (r'^!parrot', demo1.parrot),
     ('hi', demo1.greet),
     ('yay', lambda msg: 'yay!'),
 ]
