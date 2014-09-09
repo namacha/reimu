@@ -23,18 +23,22 @@ def greet(msg):
     return 'Hello, %s' % name
 ```
 
-Function is called with argument 'msg'when chat message matches.
+Function is called with argument 'msg' when chat message matches.
 
 'msg' is a instance of Skype4Py/Message.
+
 For more information, see [Skype4Py Reference#Message](http://skype4py.sourceforge.net/doc/html/Skype4Py.chat.ChatMessage-class.html)
 
-## Edit ./patterns.py
+
+## Map chat text to function
+
+Edit ./patterns.py
 
 ```
 import foo
 ```
 
-import user defined function.
+import user module.
 
 ```
 patterns = [
