@@ -8,7 +8,7 @@ class Timer(object):
         self.timers = []
 
     def set_timer(self, msg):
-        args = msg.split(' ')
+        args = msg.Body.split(' ')
         limit = int(args[1]) + time.time()
         if len(args) > 2:
             limit_message = args[2]
