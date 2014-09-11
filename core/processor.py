@@ -16,13 +16,18 @@ from status import (
 PROCESS_TIMEOUT = 3
 CHECK_TIME_EVENT_DURATION = 10
 
+TRANSPORT='x11'
+
 TimeOutException = type("TimeOutException", (Exception, ), {})
 
 
 class Processor(object):
 
     def __init__(self, conditions, schedules=[]):
-        self.skype = Skype4Py.Skype(Transport='x11')
+        try:
+            self.skype = Skype4Py.Skype(Transport=TRANSPORT)
+        except TypeError:
+            self.skype = Skype4Py.Skype()
         self.skype.Attach()
         self.skype.OnMessageStatus = self.receive_handler
         self.conditions = conditions
