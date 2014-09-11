@@ -24,17 +24,14 @@ def show_help(msg):
 
     return result
 
-patterns.append((r'^!help$', show_help))
+patterns.patterns.append((r'^!help$', show_help))
 
 if __name__ == '__main__':
     while True:
         try:
-            conditions = mapping.makeconditions(
-                patterns.patterns,
-                patterns.schedules
-            )
+            conditions = mapping.makeconditions(patterns.patterns)
 
-            p = processor.Processor(conditions)
+            p = processor.Processor(conditions, schedules=patterns.schedules)
             p.run()
 
             # reload all modules
