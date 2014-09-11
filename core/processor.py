@@ -14,18 +14,21 @@ from status import (
 
 
 PROCESS_TIMEOUT = 3
+CHECK_TIME_EVENT_DURATION = 10
 
 TimeOutException = type("TimeOutException", (Exception, ), {})
 
 
 class Processor(object):
 
-    def __init__(self, conditions):
+    def __init__(self, conditions, schedules=[]):
         self.skype = Skype4Py.Skype(Transport='x11')
         self.skype.Attach()
         self.skype.OnMessageStatus = self.receive_handler
         self.conditions = conditions
         self.queue = Queue.Queue()
+
+        self.schedules = schedules
 
         self.ignores = []
 
@@ -51,7 +54,7 @@ class Processor(object):
     def run(self):
         while True:
             try:
-                msg, action = self.queue.get(True, 10)  # 10sec
+                msg, action = self.queue.get(True, CHECK_TIME_EVENT_DURATION)
                 action_with_timeout =\
                     self.set_timeout(PROCESS_TIMEOUT)(action)
                 result = action_with_timeout(msg)
@@ -69,8 +72,11 @@ class Processor(object):
                         msg.Chat.SendMessage(result)
 
             except Queue.Empty:
-                # Write time-driven event here
-                pass
+                for cond in self.schedules:
+                    result = cond()
+                    if result:
+                        msg, message = result
+                        msg.Chat.SendMessage(message)
 
             except TimeOutException:
                 msg.Chat.SendMessage(u'ゆ…ゆっ……')
