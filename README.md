@@ -2,7 +2,8 @@ reimu-core
 ==================
 reimu-core is a core system of skypebot 'reimu'.
 
-This system contains base system only, not including time-driven event, dynaminc message handling.
+~~This system contains base system only, not including time-driven event, dynaminc message handling.~~
+Supported! See sample/SimpleTimer.py
 
 
 Requirements
