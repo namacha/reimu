@@ -5,7 +5,7 @@ from core import (
     mapping,
 )
 
-from patterns import patterns
+import patterns
 
 
 
@@ -29,7 +29,10 @@ patterns.append((r'^!help$', show_help))
 if __name__ == '__main__':
     while True:
         try:
-            conditions = mapping.makeconditions(patterns)
+            conditions = mapping.makeconditions(
+                patterns.patterns,
+                patterns.schedules
+            )
 
             p = processor.Processor(conditions)
             p.run()
