@@ -40,20 +40,20 @@ For more information, see [Skype4Py Reference#Message](http://skype4py.sourcefor
 
 Edit ./patterns.py
 
-```
+```python
 import foo
 ```
 
 import user module.
 
-```
+```python
 patterns = [
     (r'^!ping$', foo.ping),
     ('hi', foo.greet),
 ]
 ```
 
-patterns is a list defines when to call function.
+Add regex pattern and function that returns message.
 patterns = [(REGEX_STRING, FUNCTION), ...]
 
 `(r'^!help$', show_help)` is automatically added to patterns.
