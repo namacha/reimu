@@ -17,7 +17,7 @@ Usage
 
 Edit foo.py
 
-```
+```python
 def ping(msg):
     '''!ping:ping-pong test'''
     return 'pong'
